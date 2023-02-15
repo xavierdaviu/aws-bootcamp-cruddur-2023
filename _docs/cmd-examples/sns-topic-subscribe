@@ -1,0 +1,4 @@
+aws sns subscribe \
+    --topic-arn "arn:aws:sns:eu-central-1:026389300232:billing-alarm" \
+    --protocol email \
+    --notification-endpoint xavier@daviu.com

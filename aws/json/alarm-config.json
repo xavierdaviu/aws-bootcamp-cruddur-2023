@@ -1,0 +1,25 @@
+[
+    {
+      "Id": "string",
+      "MetricStat": {
+        "Metric": {
+          "Namespace": "string",
+          "MetricName": "string",
+          "Dimensions": [
+            {
+              "Name": "string",
+              "Value": "string"
+            }
+          ]
+        },
+        "Period": integer,
+        "Stat": "string",
+        "Unit": "Seconds"|"Microseconds"|"Milliseconds"|"Bytes"|"Kilobytes"|"Megabytes"|"Gigabytes"|"Terabytes"|"Bits"|"Kilobits"|"Megabits"|"Gigabits"|"Terabits"|"Percent"|"Count"|"Bytes/Second"|"Kilobytes/Second"|"Megabytes/Second"|"Gigabytes/Second"|"Terabytes/Second"|"Bits/Second"|"Kilobits/Second"|"Megabits/Second"|"Gigabits/Second"|"Terabits/Second"|"Count/Second"|"None"
+      },
+      "Expression": "string",
+      "Label": "string",
+      "ReturnData": true|false,
+      "Period": integer,
+      "AccountId": "string"
+    }
+  ]
