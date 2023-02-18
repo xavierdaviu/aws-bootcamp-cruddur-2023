@@ -31,3 +31,6 @@
 ![AWS Billing Budget](assets/aws_billing_budget.png)
 
 **Learn to use Lucid Charts and draw the 2 diagrams**
+
+![Lucid ChartsConceptual Diagram](assets/lucid_conceptual_diagram.png)
+
