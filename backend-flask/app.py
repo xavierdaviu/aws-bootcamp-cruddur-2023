@@ -68,7 +68,9 @@ def data_home():
 
 @app.route("/api/activities/notifications", methods=['GET'])
 def data_notifications():
+  print("* DEBUG Notifications: 1")
   data = NotificationsActivities.run()
+  print("* DEBUG Notifications: 4")
   return data, 200
 
 @app.route("/api/activities/@<string:handle>", methods=['GET'])

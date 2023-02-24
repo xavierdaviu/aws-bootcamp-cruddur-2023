@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta, timezone
 class NotificationsActivities:
   def run():
+    print("* DEBUG Notifications: 2")
     now = datetime.now(timezone.utc).astimezone()
     results = [{
       'uuid': '68f126b0-1ceb-4a33-88be-d90fa7109eee',
@@ -23,4 +24,5 @@ class NotificationsActivities:
       }],
     }
     ]
+    print("* DEBUG Notifications: 3")
     return results
