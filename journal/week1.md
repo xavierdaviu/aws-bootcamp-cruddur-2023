@@ -2,7 +2,7 @@
 
 ## As Homework I've done:
 
-**Build the back-end container imgage with the Dockerfile**
+**Build the back-end container image with the Dockerfile**
 
 ![Docker_build_back-end](assets/docker_build.png)
 
@@ -16,7 +16,7 @@
 ![Docker_test_back-end](assets/docker_run_url.png)
 
 
-**Build the fornt-end container imgage with the Dockerfile**
+**Build the fornt-end container image with the Dockerfile**
 
 ![Docker_build_front-end](assets/docker_compose_front-end.png)
 
