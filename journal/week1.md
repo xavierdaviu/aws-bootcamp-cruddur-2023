@@ -4,7 +4,7 @@
 
 **Build the back-end container image with the Dockerfile**
 
-![Docker_build_back-end](assets/docker_build.png)
+![Docker_build_back-end](assets/docker_build_back-end.png)
 
 ![Docker_images_back-end](assets/docker_images.png)
 
@@ -16,9 +16,9 @@
 ![Docker_test_back-end](assets/docker_run_url.png)
 
 
-**Build the fornt-end container image with the Dockerfile**
+**Build the front-end container image with the Dockerfile**
 
-![Docker_build_front-end](assets/docker_compose_front-end.png)
+![Docker_build_front-end](assets/docker_build_front-end.png)
 
 
 **Run the front-end container & test web**
@@ -29,3 +29,9 @@
 **Test PostgreSQL database connection**
 
 ![PostgreSQL database connection](assets/postgresql_database_connection.png)
+
+
+**Build all with the docker-compose.yml file**
+
+![Docker-compose_build](assets/docker_compose_with_db.png)
+
