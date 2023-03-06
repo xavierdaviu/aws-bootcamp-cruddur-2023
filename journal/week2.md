@@ -2,7 +2,7 @@
 
 ## As Homework I've done:
 
-**Configure the backend flask app to use Open Telemetry (OTEL) with Honeycomb.io^*
+**Configure the backend flask app to use Open Telemetry (OTEL) with Honeycomb.io**
 
 ![Honeycomb Configure API key](assets/Honeycomb_API_key.png)
 
