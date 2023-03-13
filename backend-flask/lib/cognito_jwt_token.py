@@ -3,6 +3,7 @@ import requests
 from jose import jwk, jwt
 from jose.exceptions import JOSEError
 from jose.utils import base64url_decode
+from flask_awscognito.exceptions import FlaskAWSCognitoError, TokenVerifyError
 
 class FlaskAWSCognitoError(Exception):
   pass
