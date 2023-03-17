@@ -6,4 +6,12 @@ NO_COLOR='\033[0m'
 LABEL="db-connect:"
 printf "${CYAN}== ${LABEL}${NO_COLOR}\n"
 
-psql $CONNECTION_URL
+if [ "$1" = "prod" ]; then
+   echo "Production environment"
+   CON_URL=$PROD_CONNECTION_URL
+else
+   echo "Not Production environment"
+   CON_URL=$CONNECTION_URL
+fi
+
+psql $CON_URL
