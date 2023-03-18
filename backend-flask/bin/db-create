@@ -6,5 +6,13 @@ NO_COLOR='\033[0m'
 LABEL="db-create:"
 printf "${CYAN}== ${LABEL}${NO_COLOR}\n"
 
-CONNECTION_URL_NO_DB=$(sed 's/\/cruddur//g' <<<"$CONNECTION_URL")
+if [ "$1" = "prod" ]; then
+   echo "Production environment"
+   CON_URL=$PROD_CONNECTION_URL
+else
+   echo "Not Production environment"
+   CON_URL=$CONNECTION_URL
+fi
+
+CONNECTION_URL_NO_DB=$(sed 's/\/cruddur//g' <<<"$CON_URL")
 psql $CONNECTION_URL_NO_DB -c "CREATE database cruddur;"
