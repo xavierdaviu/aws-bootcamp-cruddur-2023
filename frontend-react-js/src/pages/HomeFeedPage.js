@@ -8,7 +8,8 @@ import ActivityForm from '../components/ActivityForm';
 import ReplyForm from '../components/ReplyForm';
 
 /* import Cookies from 'js-cookie' */
-import { Auth } from 'aws-amplify';
+/* import { Auth } from 'aws-amplify'; */
+import checkAuth from '../lib/CheckAuth';
 
 export default function HomeFeedPage() {
   const [activities, setActivities] = React.useState([]);
@@ -39,7 +40,7 @@ export default function HomeFeedPage() {
   };
 
   // check if we are authenicated
-  const checkAuth = async () => {
+  /*const checkAuth = async () => {
     console.log('checkAuth')
     /*
     if (Cookies.get('user.logged_in')) {
@@ -47,7 +48,7 @@ export default function HomeFeedPage() {
         display_name: Cookies.get('user.name'),
         handle: Cookies.get('user.username')
       })
-    }*/
+    }*//*
     Auth.currentAuthenticatedUser({
       // Optional, By default is false. 
       // If set to true, this call will send a 
@@ -64,7 +65,7 @@ export default function HomeFeedPage() {
         })
     })
     .catch((err) => console.log(err));
-  };
+  };*/
 
   React.useEffect(()=>{
     //prevents double call
@@ -73,7 +74,7 @@ export default function HomeFeedPage() {
 
     loadData();
     // check when the page loads if we are authenicated    
-    checkAuth();
+    checkAuth(setUser);
   }, [])
 
   return (

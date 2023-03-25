@@ -15,4 +15,4 @@ else
 fi
 
 CONNECTION_URL_NO_DB=$(sed 's/\/cruddur//g' <<<"$CON_URL")
-psql $CONNECTION_URL_NO_DB -c "DROP database cruddur;"
+psql $CONNECTION_URL_NO_DB -c "DROP database IF EXISTS cruddur;"
