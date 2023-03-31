@@ -1,6 +1,6 @@
 # Week 5 — DynamoDB and Serverless Caching
 
-##As Homework I've done:
+## As Homework I've done:
 
 **Create a DynamoDB table with Provisioned Capacity.**
 
