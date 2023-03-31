@@ -1,6 +1,6 @@
 # Week 4 — Postgres and RDS
 
-##As Homework I've done:
+## As Homework I've done:
 
 **Create a new RDS instance in AWS and remotely connect to it.**
 
