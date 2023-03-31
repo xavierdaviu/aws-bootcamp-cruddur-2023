@@ -1,4 +1,5 @@
-FROM python:3.10-slim-buster
+#FROM python:3.10-slim-buster
+FROM 026389300232.dkr.ecr.eu-central-1.amazonaws.com/cruddur-python:3.10-slim-buster
 
 # Inside Container
 WORKDIR /backend-flask
@@ -13,7 +14,8 @@ RUN pip3 install -r requirements.txt
 COPY . .
 
 # Inside Container
-ENV FLASK_ENV=development
+#ENV FLASK_ENV=development
+ENV FLASK_DEBUG=1
 
 EXPOSE ${PORT}
 
