@@ -5,11 +5,11 @@ import urllib.request
 try:
   response = urllib.request.urlopen('http://localhost:4567/api/health-check')
   if response.getcode() == 200:
-    print("Flask server is running")
-    exit(0)
+    print("[OK] Flask server is running")
+    exit(0) #success
   else:
-    print("Flask server is not running")
-    exit(1)
+    print("[BAD] Flask server is not running")
+    exit(1) #error
 
 #except ConnectionRefusedError as e: (not captured -> any exception)
 except Exception as e:
