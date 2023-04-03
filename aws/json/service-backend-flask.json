@@ -13,6 +13,7 @@
   ],
   "networkConfiguration": {
     "awsvpcConfiguration": {
+      "assignPublicIp": "ENABLED",
       "securityGroups": [
         "sg-0e1e48e63ca5f3879"
       ],
