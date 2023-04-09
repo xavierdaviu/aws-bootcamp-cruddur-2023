@@ -1,5 +1,10 @@
 #! /usr/bin/bash
 
+ABS_PATH=$(readlink -f "$0")
+BIN_PATH=$(dirname $ABS_PATH)
+PROJECT_PATH=$(dirname $BIN_PATH)
+FRONTEND_REACT_JS_PATH="$PROJECT_PATH/frontend-react-js"
+
 #--build-arg REACT_APP_BACKEND_URL="https://4567-$GITPOD_WORKSPACE_ID.$GITPOD_WORKSPACE_CLUSTER_HOST" \
 
 docker build \
@@ -9,5 +14,5 @@ docker build \
 --build-arg REACT_APP_AWS_USER_POOLS_ID="eu-central-1_xAmLcWxaN" \
 --build-arg REACT_APP_CLIENT_ID="5sgt6jg27r7is2sf25fpp4cip0" \
 -t frontend-react-js \
--f Dockerfile.prod \
-.
+-f "$FRONTEND_REACT_JS_PATH/Dockerfile.prod" \
+"$FRONTEND_REACT_JS_PATH/."
