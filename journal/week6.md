@@ -29,3 +29,5 @@
 ![AWS-ECS-cruddur-cluster-task-api-healtch-check](assets/AWS-ECS-cruddur-cluster-task-api-healtch-check.png)
 
 ![AWS-ECS-cruddur-cluster-task-api-activities-home](assets/AWS-ECS-cruddur-cluster-task-api-activities-home.png)
+
+### Continue in Week7...
