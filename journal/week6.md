@@ -30,4 +30,6 @@
 
 ![AWS-ECS-cruddur-cluster-task-api-activities-home](assets/AWS-ECS-cruddur-cluster-task-api-activities-home.png)
 
+**Deploy serverless containers using Fargate for the Frontend Application**
+
 ### Continue in Week7...
