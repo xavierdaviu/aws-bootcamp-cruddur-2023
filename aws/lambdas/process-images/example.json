@@ -3,7 +3,7 @@
       {
         "eventVersion": "2.0",
         "eventSource": "aws:s3",
-        "awsRegion": "ca-central-1",
+        "awsRegion": "eu-central-1",
         "eventTime": "1970-01-01T00:00:00.000Z",
         "eventName": "ObjectCreated:Put",
         "userIdentity": {
@@ -24,7 +24,7 @@
             "ownerIdentity": {
               "principalId": "EXAMPLE"
             },
-            "arn": "arn:aws:s3:::assets.cruddur.com"
+            "arn": "arn:aws:s3:::assets.cruddur.daviu.com.es"
           },
           "object": {
             "key": "avatars/original/data.jpg",
