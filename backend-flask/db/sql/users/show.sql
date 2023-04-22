@@ -2,8 +2,10 @@ SELECT
   (SELECT COALESCE(row_to_json(object_row),'{}'::json) FROM (
     SELECT
       users.uuid,
+      users.cognito_user_id as cognito_user_uuid,
       users.handle,
       users.display_name,
+      users.bio,
       (
        SELECT 
         count(true) 
