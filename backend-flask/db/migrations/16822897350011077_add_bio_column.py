@@ -6,6 +6,7 @@ class AddBioColumnMigration:
     ALTER TABLE public.users ADD COLUMN bio text;
     """
     return data
+
   def rollback_sql():
     data = """
     ALTER TABLE public.users DROP COLUMN bio;
@@ -19,5 +20,5 @@ class AddBioColumnMigration:
   def rollback():
     db.query_commit(AddBioColumnMigration.rollback_sql(),{
     })
-
+    
 migration = AddBioColumnMigration
