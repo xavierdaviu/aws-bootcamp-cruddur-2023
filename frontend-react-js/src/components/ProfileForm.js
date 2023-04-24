@@ -48,7 +48,7 @@ export default function ProfileForm(props) {
     const size = file.size
     const type = file.type
     const preview_image_url = URL.createObjectURL(file)
-    console.log(filename,size,type)
+    console.log('file',filename,size,type)
     const fileparts = filename.split('.')
     const extension = fileparts[fileparts.length-1]
     const presignedurl = await s3uploadkey(extension)
