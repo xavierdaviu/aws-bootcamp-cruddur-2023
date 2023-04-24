@@ -8,4 +8,4 @@
             "Resource": "arn:aws:s3:::uploaded-avatars.cruddur.daviu.com.es/*"
         }
     ]
-  }
+}
