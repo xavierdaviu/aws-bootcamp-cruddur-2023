@@ -1,95 +1,48 @@
-import './ProfileForm.css';
+import './ReplyForm.css';
 import React from "react";
 import process from 'process';
-import {getAccessToken} from 'lib/CheckAuth';
+import {ReactComponent as BombIcon} from './svg/bomb.svg';
 
-export default function ProfileForm(props) {
-  const [bio, setBio] = React.useState(0);
-  const [displayName, setDisplayName] = React.useState(0);
+import ActivityContent  from '../components/ActivityContent';
 
-  React.useEffect(()=>{
-    console.log('useEffects',props)
-    setBio(props.profile.bio);
-    setDisplayName(props.profile.display_name);
-  }, [props.profile])
+export default function ReplyForm(props) {
+  const [count, setCount] = React.useState(0);
+  const [message, setMessage] = React.useState('');
 
-  const s3uploadkey = async (event)=> {
-    try {
-      console.log('s3upload')
-      const backend_url = "https://clbx5fa2yb.execute-api.ca-central-1.amazonaws.com/avatars/key_upload"
-      await getAccessToken()
-      const access_token = localStorage.getItem("access_token")
-      const res = await fetch(backend_url, {
-        method: "POST",
-        headers: {
-          'Origin': "https://3000-omenking-awsbootcampcru-ts9rmefvwj6.ws-us94.gitpod.io",
-          'Authorization': `Bearer ${access_token}`,
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-      }})
-      let data = await res.json();
-      if (res.status === 200) {
-        console.log('presigned url',data)
-        return data.url
-      } else {
-        console.log(res)
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  }
-  const s3upload = async (event)=> {
-    console.log('event',event)
-    const file = event.target.files[0]
-    console.log('file',file)
-    const filename = file.name
-    const size = file.size
-    const type = file.type
-    const preview_image_url = URL.createObjectURL(file)
-    console.log(filename,size,type)
-    const presignedurl = await s3uploadkey()
-    console.log('pp',presignedurl)
-    try {
-      console.log('s3upload')
-      const res = await fetch(presignedurl, {
-        method: "PUT",
-        body: file,
-        headers: {
-          'Content-Type': type
-      }})
-      let data = await res.json();
-      if (res.status === 200) {
-        setPresignedurl(data.url)
-      } else {
-        console.log(res)
-      }
-    } catch (err) {
-      console.log(err);
-    }
+  const classes = []
+  classes.push('count')
+  if (240-count < 0){
+    classes.push('err')
   }
 
   const onsubmit = async (event) => {
     event.preventDefault();
     try {
-      const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/profile/update`
-      await getAccessToken()
-      const access_token = localStorage.getItem("access_token")
+      const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/${props.activity.uuid}/reply`
       const res = await fetch(backend_url, {
         method: "POST",
         headers: {
-          'Authorization': `Bearer ${access_token}`,
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          bio: bio,
-          display_name: displayName
+          message: message
         }),
       });
       let data = await res.json();
       if (res.status === 200) {
-        setBio(null)
-        setDisplayName(null)
+        // add activity to the feed
+
+        let activities_deep_copy = JSON.parse(JSON.stringify(props.activities))
+        let found_activity = activities_deep_copy.find(function (element) {
+          return element.uuid ===  props.activity.uuid;
+        });
+        found_activity.replies.push(data)
+
+        props.setActivities(activities_deep_copy);
+        // reset and close the form
+        setCount(0)
+        setMessage('')
         props.setPopped(false)
       } else {
         console.log(res)
@@ -99,56 +52,44 @@ export default function ProfileForm(props) {
     }
   }
 
-  const bio_onchange = (event) => {
-    setBio(event.target.value);
+  const textarea_onchange = (event) => {
+    setCount(event.target.value.length);
+    setMessage(event.target.value);
   }
 
-  const display_name_onchange = (event) => {
-    setDisplayName(event.target.value);
+  let content;
+  if (props.activity){
+    content = <ActivityContent activity={props.activity} />;
   }
 
-  const close = (event)=> {
-    if (event.target.classList.contains("profile_popup")) {
-      props.setPopped(false)
-    }
-  }
 
   if (props.popped === true) {
     return (
-      <div className="popup_form_wrap profile_popup" onClick={close}>
-        <form 
-          className='profile_form popup_form'
-          onSubmit={onsubmit}
-        >
+      <div className="popup_form_wrap">
+        <div className="popup_form">
           <div className="popup_heading">
-            <div className="popup_title">Edit Profile</div>
-            <div className='submit'>
-              <button type='submit'>Save</button>
-            </div>
           </div>
           <div className="popup_content">
-            
-          <input type="file" name="avatarupload" onChange={s3upload} />
-
-            <div className="field display_name">
-              <label>Display Name</label>
-              <input
-                type="text"
-                placeholder="Display Name"
-                value={displayName}
-                onChange={display_name_onchange} 
-              />
+            <div className="activity_wrap">
+              {content}
             </div>
-            <div className="field bio">
-              <label>Bio</label>
+            <form 
+              className='replies_form'
+              onSubmit={onsubmit}
+            >
               <textarea
-                placeholder="Bio"
-                value={bio}
-                onChange={bio_onchange} 
+                type="text"
+                placeholder="what is your reply?"
+                value={message}
+                onChange={textarea_onchange} 
               />
-            </div>
+              <div className='submit'>
+                <div className={classes.join(' ')}>{240-count}</div>
+                <button type='submit'>Reply</button>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
     );
   }
