@@ -7,7 +7,7 @@ phases:
     commands:
       - echo "cd into $CODEBUILD_SRC_DIR/backend"
       - cd $CODEBUILD_SRC_DIR/backend-flask
-      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $IMAGE_URL
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com"
   build:
     commands:
       - echo Build started on `date`
