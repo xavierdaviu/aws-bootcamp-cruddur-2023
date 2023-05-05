@@ -1,8 +1,4 @@
 tasks:
-    - name: cfn
-      before: |
-        pip install cfn-lint
-        cargo install cfn-guard
     - name: aws-cli
       env:
         AWS_CLI_AUTO_PROMPT: on-partial
@@ -45,6 +41,10 @@ tasks:
         cd thumbing-serverless-cdk
         cp .env.example .env
         npm i
+    - name: cfn
+      before: |
+        pip install cfn-lint
+        cargo install cfn-guard
         
 vscode:
   extensions:
