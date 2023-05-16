@@ -6,7 +6,7 @@
   "enableExecuteCommand": true,
   "loadBalancers": [
     {
-        "targetGroupArn": "arn:aws:elasticloadbalancing:eu-central-1:026389300232:targetgroup/CrdClu-Backe-ZFQJJCF6ZCRS/2321fc90ee14b953",
+        "targetGroupArn": "arn:aws:elasticloadbalancing:eu-central-1:026389300232:targetgroup/Cruddu-Backe-WFKWR5OXRP55/b0ce89d855045984",
         "containerName": "backend-flask",
         "containerPort": 4567
     }
@@ -18,9 +18,9 @@
         "sg-0e1e48e63ca5f3879"
       ],
       "subnets": [
-        "subnet-55af073c",
-        "subnet-2427ef5f",
-        "subnet-1083b45a"
+        "subnet-00472e080408ed904",
+        "subnet-0fb90821c21753a45",
+        "subnet-09fe1bd25a8d9707e"
       ]
     }
   },
