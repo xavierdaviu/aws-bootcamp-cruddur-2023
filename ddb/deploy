@@ -9,7 +9,7 @@ echo "== deploy"
 sam deploy \
   --template-file $PACKAGED_TEMPLATE_PATH  \
   --config-file $CONFIG_PATH \
-  --stack-name "CrdDdb" \
+  --stack-name "CruddurDdb" \
   --tags group=cruddur-ddb \
   --no-execute-changeset \
   --capabilities "CAPABILITY_NAMED_IAM"
