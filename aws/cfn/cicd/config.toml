@@ -1,0 +1,11 @@
+[deploy]
+bucket = 'cfn-artifacts.cruddur.daviu.com.es'
+region = 'eu-central-1'
+stack_name = 'CruddurCicd'
+
+[parameters]
+ServiceStack = 'CruddurServiceBackendFlask'
+ClusterStack = 'CruddurCluster'
+GitHubBranch = 'prod'
+GithubRepo = 'aws-bootcamp-cruddur-2023'
+ArtifactBucketName = "codepipeline-artifacts.cruddur.daviu.com.es"
