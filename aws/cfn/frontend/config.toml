@@ -4,6 +4,6 @@ region = 'eu-central-1'
 stack_name = 'CruddurFrontend'
 
 [parameters]
-CertificateArn = 'arn:aws:acm:eu-central-1:026389300232:certificate/3d5138c4-00d0-4e5c-9c1e-55199276d1d3'
+CertificateArn = 'arn:aws:acm:us-east-1:026389300232:certificate/dd2d84f8-a8bb-4a95-b20e-cdd5a4e8f5d7'
 WwwBucketName = 'www.cruddur.daviu.com.es'
-RootBucketName = 'cruddur.daviu.com.es'
+RootBucketName = 'daviu.com.es'
