@@ -1,0 +1,9 @@
+[deploy]
+bucket = 'cfn-artifacts.cruddur.daviu.com.es'
+region = 'eu-central-1'
+stack_name = 'CruddurFrontend'
+
+[parameters]
+CertificateArn = 'arn:aws:acm:eu-central-1:026389300232:certificate/3d5138c4-00d0-4e5c-9c1e-55199276d1d3'
+WwwBucketName = 'www.cruddur.daviu.com.es'
+RootBucketName = 'cruddur.daviu.com.es'
