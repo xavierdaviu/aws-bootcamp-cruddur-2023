@@ -28,7 +28,7 @@ export default function RecoverPage() {
     event.preventDefault();
     console.log('onsubmit_confirm_code')
     setCognitoErrors('')
-    if (password == passwordAgain){
+    if (password === passwordAgain){
       Auth.forgotPasswordSubmit(username, code, password)
         .then((data) => setFormState('success'))
         .catch((err) => setCognitoErrors(err.message) );
@@ -130,13 +130,13 @@ export default function RecoverPage() {
     }
 
   let form;
-  if (formState == 'send_code') {
+  if (formState === 'send_code') {
     form = send_code()
   }
-  else if (formState == 'confirm_code') {
+  else if (formState === 'confirm_code') {
     form = confirm_code()
   }
-  else if (formState == 'success') {
+  else if (formState === 'success') {
     form = success()
   }
 

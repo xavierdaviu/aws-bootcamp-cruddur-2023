@@ -34,7 +34,7 @@ export default function SigninPage() {
       })
       .catch(error => { 
         console.log('Error!', error) 
-        if (error.code == 'UserNotConfirmedException') {
+        if (error.code === 'UserNotConfirmedException') {
           window.location.href = "/confirm"
         }
         setCognitoErrors(error.message)
