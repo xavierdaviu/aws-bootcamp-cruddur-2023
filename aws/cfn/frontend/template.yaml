@@ -12,6 +12,8 @@ Parameters:
     Type: String
   RootBucketName:
     Type: String
+  HostedZoneName:
+    Type: String
 
 Resources:
   RootBucketPolicy:
@@ -49,7 +51,7 @@ Resources:
     # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html
     Type: AWS::Route53::RecordSet
     Properties:
-      HostedZoneName: !Sub ${RootBucketName}.
+      HostedZoneName: !Sub ${HostedZoneName}.
       Name: !Sub ${RootBucketName}.
       Type: A
       AliasTarget:
@@ -61,7 +63,7 @@ Resources:
     # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html
     Type: AWS::Route53::RecordSet
     Properties:
-      HostedZoneName: !Sub ${RootBucketName}.
+      HostedZoneName: !Sub ${HostedZoneName}.
       Name: !Sub ${WwwBucketName}.
       Type: A
       AliasTarget:
