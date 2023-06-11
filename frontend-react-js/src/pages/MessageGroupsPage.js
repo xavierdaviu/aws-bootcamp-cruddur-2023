@@ -3,9 +3,6 @@ import React from "react";
 
 import DesktopNavigation  from '../components/DesktopNavigation';
 import MessageGroupFeed from '../components/MessageGroupFeed';
-
-// Authenication
-/* import Cookies from 'js-cookie' */
 import {checkAuth, getAccessToken} from '../lib/CheckAuth';
 
 export default function MessageGroupsPage() {
@@ -15,38 +12,11 @@ export default function MessageGroupsPage() {
   const dataFetchedRef = React.useRef(false);
 
   const loadData = async () => {
-    try {
-      const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/message_groups`
-      await getAccessToken()
-      const access_token = localStorage.getItem("access_token")
-      const res = await fetch(backend_url, {
-        headers: {
-          Authorization: `Bearer ${access_token}`
-        },
-        method: "GET"
-      });
-      let resJson = await res.json();
-      if (res.status === 200) {
-        setMessageGroups(resJson)
-      } else {
-        console.log(res)
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };  
-
-  /*
-  const checkAuth = async () => {
-    console.log('checkAuth')
-    // [TODO] Authenication
-    if (Cookies.get('user.logged_in')) {
-      setUser({
-        display_name: Cookies.get('user.name'),
-        handle: Cookies.get('user.username')
-      })
-    }
-  };*/
+    const url = `${process.env.REACT_APP_BACKEND_URL}/api/message_groups`
+    get(url,null,function(data){
+      setMessageGroups(data)
+    })
+  }
 
   React.useEffect(()=>{
     //prevents double call

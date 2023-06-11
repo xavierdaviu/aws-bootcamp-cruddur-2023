@@ -7,9 +7,8 @@ import ActivityFeed from 'components/ActivityFeed';
 import ActivityForm from 'components/ActivityForm';
 import ReplyForm from 'components/ReplyForm';
 
-/* import Cookies from 'js-cookie' */
-/* import { Auth } from 'aws-amplify'; */
-import {checkAuth, getAccessToken} from 'lib/CheckAuth';
+import {get} from 'lib/Requests';
+import {checkAuth} from 'lib/CheckAuth';
 
 export default function HomeFeedPage() {
   const [activities, setActivities] = React.useState([]);
@@ -20,62 +19,18 @@ export default function HomeFeedPage() {
   const dataFetchedRef = React.useRef(false);
 
   const loadData = async () => {
-    try {
-      const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/home`
-      await getAccessToken()
-      const access_token = localStorage.getItem("access_token")
-      const res = await fetch(backend_url, {
-        headers: {
-          Authorization: `Bearer ${access_token}`
-        },
-        method: "GET"
-      });
-      let resJson = await res.json();
-      if (res.status === 200) {
-        setActivities(resJson)
-      } else {
-        console.log(res)
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  // check if we are authenicated
-  /*const checkAuth = async () => {
-    console.log('checkAuth')
-    /*
-    if (Cookies.get('user.logged_in')) {
-      setUser({
-        display_name: Cookies.get('user.name'),
-        handle: Cookies.get('user.username')
-      })
-    }*//*
-    Auth.currentAuthenticatedUser({
-      // Optional, By default is false. 
-      // If set to true, this call will send a 
-      // request to Cognito to get the latest user data
-      bypassCache: false 
+    const url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/home`
+    get(url,null,function(data){
+      setActivities(data)
     })
-    .then((user) => {
-      console.log('user',user);
-      return Auth.currentAuthenticatedUser()
-    }).then((cognito_user) => {
-        setUser({
-          display_name: cognito_user.attributes.name,
-          handle: cognito_user.attributes.preferred_username
-        })
-    })
-    .catch((err) => console.log(err));
-  };*/
-
+  }
+  
   React.useEffect(()=>{
     //prevents double call
     if (dataFetchedRef.current) return;
     dataFetchedRef.current = true;
 
     loadData();
-    // check when the page loads if we are authenicated    
     checkAuth(setUser);
   }, [])
 
