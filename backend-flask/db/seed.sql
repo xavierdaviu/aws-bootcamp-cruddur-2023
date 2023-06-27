@@ -4,7 +4,8 @@ VALUES
   ('Andrew Brown', 'andrew@exampro.co', 'andrewbrown', 'MOCK'),
   ('Alt Brown', 'andrew@cloudprojectbootcamp.com', 'altbrown', 'MOCK'),
   ('Andrew Bayko', 'bayko@exampro.co', 'bayko', 'MOCK'),
-  ('Londo Mollari', 'lmollari@centari.com', 'londo', 'MOCK');
+  ('Londo Mollari', 'lmollari@centari.com', 'londo', 'MOCK'),
+  ('Xavier Daviu', 'xavier@daviu.com', 'xavierdaviu', 'MOCK');
 
 INSERT INTO public.activities (user_uuid, message, expires_at)
 VALUES
