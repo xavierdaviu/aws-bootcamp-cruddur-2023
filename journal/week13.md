@@ -1,1 +1,3 @@
 # Week 13 — (Secret Bonus Class)
+
+### Continue in [Week X](weekX.md)...

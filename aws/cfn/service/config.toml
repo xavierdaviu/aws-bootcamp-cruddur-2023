@@ -1,0 +1,9 @@
+[deploy]
+bucket = 'cfn-artifacts.cruddur.daviu.com.es'
+region = 'eu-central-1'
+stack_name = 'CruddurServiceBackendFlask'
+
+[parameters]
+EnvFrontendUrl = 'https://cruddur.daviu.com.es'
+EnvBackendUrl = 'https://api.cruddur.daviu.com.es'
+DDBMessageTable = 'CruddurDdb-DynamoDBTable-1025NGJIV2T5J'

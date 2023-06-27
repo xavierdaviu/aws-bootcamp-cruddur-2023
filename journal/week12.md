@@ -1,1 +1,3 @@
 # Week 12 — Modern APIs
+
+### Continue in [Week X](weekX.md)...

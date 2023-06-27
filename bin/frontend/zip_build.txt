@@ -1,0 +1,2 @@
+cd frontend-react-js
+zip -r build.zip build/

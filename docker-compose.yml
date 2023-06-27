@@ -20,7 +20,10 @@ services:
     #  #AWS_ENDPOINT_URL: "http://dynamodb-local:8000"
     env_file:
       - backend-flask.env
-    build: ./backend-flask
+    build:
+      context:  ./backend-flask
+      dockerfile: Dockerfile
+      #dockerfile: Dockerfile.prod
     ports:
       - "4567:4567"
     networks:
