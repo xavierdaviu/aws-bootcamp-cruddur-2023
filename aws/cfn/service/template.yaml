@@ -71,6 +71,9 @@ Parameters:
   DDBMessageTable:
     Type: String
     Default: cruddur-messages
+  EnvFlaskEnv:
+    Type: String
+    Default: "production"
   
 Resources:
   FargateService:
@@ -184,6 +187,8 @@ Resources:
               Value: !Ref AWS::Region
             - Name: 'DDB_MESSAGE_TABLE'
               Value: !Ref DDBMessageTable
+            - Name: 'FLASK_ENV'
+              Value: !Ref EnvFlaskEnv
           Secrets:
             - Name: 'AWS_ACCESS_KEY_ID'
               ValueFrom: !Ref SecretsAWSAccessKeyId
