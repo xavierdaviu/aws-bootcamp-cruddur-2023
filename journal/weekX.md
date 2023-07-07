@@ -29,3 +29,7 @@
 **Check application**
 
 ![Cruddur-webapp](assets/Cruddur-webapp.png)
+
+**Add FLASK_ENV variable**
+
+![AWS-ServiceBackendFlask-Container-FLASK_ENV](assets/AWS-ServiceBackendFlask-Container-FLASK_ENV.png)
