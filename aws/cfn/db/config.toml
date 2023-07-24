@@ -1,9 +1,9 @@
 [deploy]
 bucket = 'cfn-artifacts.cruddur.daviu.com.es'
 region = 'eu-central-1'
-stack_name = 'CruddurDb'
+stack_name = 'CrdDb'
 
 [parameters]
-NetworkingStack = 'CruddurNetwork'
-ClusterStack = 'CruddurCluster'
+NetworkingStack = 'CrdNet'
+ClusterStack = 'CrdCluster'
 MasterUsername = 'cruddurroot'

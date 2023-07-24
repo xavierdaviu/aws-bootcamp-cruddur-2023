@@ -1,7 +1,7 @@
 [deploy]
 bucket = 'cfn-artifacts.cruddur.daviu.com.es'
 region = 'eu-central-1'
-stack_name = 'CruddurSyncRole'
+stack_name = 'CrdSyncRole'
 
 [parameters]
 GitHubOrg = 'xavierdaviu'
