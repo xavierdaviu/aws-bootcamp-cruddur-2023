@@ -9,11 +9,11 @@ Parameters:
   NetworkingStack:
     Type: String
     Description: This is our base layer of networking components eg. VPC, Subnets
-    Default: CruddurNetwork
+    Default: CrdNet
   ClusterStack:
     Type: String
     Description: This is our cluster layer eg. ECS Cluster, ALB
-    Default: CruddurCluster
+    Default: CrdCluster
   ContainerPort:
     Type: Number
     Default: 4567
